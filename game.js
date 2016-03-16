@@ -26,7 +26,7 @@
 
      init: function(){
 
-        console.log('started');
+        //console.log('started');
      },
      startCacheListeners: function(){
          this.cache.addEventListener('cached', this.logEvent.bind(this), false);
@@ -40,7 +40,7 @@
 
          window.applicationCache.addEventListener('updateready',function(){
              window.applicationCache.swapCache();
-             console.log('swap cache has been called');
+             //console.log('swap cache has been called');
          },false);
 
          setInterval(function(){
@@ -54,6 +54,16 @@
      checkDeviceStatus: function(){
          this.online = (navigator.onLine) ? "online" : "offline";
          console.log(this.online);
+         var bar = document.querySelector(".bar");
+
+         if(this.online === "online"){
+
+           bar.className = "bar online";
+         }else{
+
+           bar.className = "bar offline";
+
+         }
      },
      logEvent: function(event){
 
